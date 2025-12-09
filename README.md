@@ -1,7 +1,3 @@
-Here is a clean, polished **README.txt** you can drop directly into your GitHub repo.
-
----
-
 # fakirtools
 
 Tools for Large-Scale Domain Collection, WHOIS/DNS Enrichment, and Clustering

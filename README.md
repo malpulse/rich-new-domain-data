@@ -4,7 +4,7 @@ Tools for Large-Scale Newly Registered Domain Collection, WHOIS/DNS Enrichment, 
 
 This repository contains two Python scripts designed to work together:
 
-1. **analiz.py** – Fetches newly-seen domains, performs DNS + WHOIS enrichment, and saves the results into a structured CSV file.
+1. **domain_analyze.py** – Fetches newly-seen domains, performs DNS + WHOIS enrichment, and saves the results into a structured CSV file.
 2. **cluster.py** – Clusters domains based on shared WHOIS, DNS, or IP-related attributes from the generated CSV/TXT dataset.
 
 Both tools are optimized for low-RAM servers, incremental processing, and scalable handling of thousands of domains.
@@ -13,7 +13,7 @@ Both tools are optimized for low-RAM servers, incremental processing, and scalab
 
 ## 📌 Files
 
-### **analiz.py**
+### **domain_analyze.py**
 
 A lightweight but robust domain analysis pipeline that:
 
@@ -69,7 +69,7 @@ ip_asn, ip_org, ip_country, status, MX_values, NS_values, ...
 Fetch domains → perform WHOIS/DNS enrichment → save CSV.
 
 ```
-python3 analiz.py
+python3 domain_analyze.py
 ```
 
 Optional arguments:
@@ -92,20 +92,20 @@ Output example:
 Basic clustering by name servers and registrant organization:
 
 ```
-python3 cluster.py domain_analysis.csv clusters.txt -f nameServers registrant_organization
+python3 cluster_domains.py domain_analysis.csv clusters.txt -f nameServers registrant_organization
 ```
 
 Cluster using multiple fields with a minimum size of 5:
 
 ```
-python3 cluster.py domain_analysis.csv clusters.txt \
+python3 cluster_domains.py domain_analysis.csv clusters.txt \
     -f nameServers registrant_organization ip_asn -m 5
 ```
 
 Cluster by registrar and IP org:
 
 ```
-python3 cluster.py domain_analysis.csv clusters.txt \
+python3 cluster_domains.py domain_analysis.csv clusters.txt \
     -f registrarName ip_org ip_country
 ```
 
@@ -146,18 +146,6 @@ Recommended (for stability):
 ```
 pip install whois
 ```
-
----
-
-## 📝 Notes & Recommendations
-
-* The scripts are optimized for **low-memory VPS** environments.
-* WHOIS lookups can be slow; use `--skip-whois` if needed.
-* Clustering works on **any CSV/TXT file** that matches the expected field layout.
-* analize.py prevents duplicate daily runs by checking content hashes.
-* If you stop analiz.py (Ctrl+C), it will **resume automatically** on next run.
-
----
 
 ## 📄 License
 

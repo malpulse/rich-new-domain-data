@@ -1,0 +1,1 @@
+# rich-new-domain-data

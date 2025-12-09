@@ -1,6 +1,6 @@
 # fakirtools
 
-Tools for Large-Scale Domain Collection, WHOIS/DNS Enrichment, and Clustering
+Tools for Large-Scale Newly Registered Domain Collection, WHOIS/DNS Enrichment, and Clustering
 
 This repository contains two Python scripts designed to work together:
 

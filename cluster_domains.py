@@ -1,12 +1,12 @@
 """
 # Cluster by nameServers and registrant_organization
-python script.py domains.txt output.txt -f nameServers registrant_organization
+python cluster_domains.py domains.txt output.txt -f nameServers registrant_organization
 
 # Cluster by multiple fields with minimum 5 domains per cluster
-python script.py domains.txt output.txt -f nameServers registrant_organization ip_asn -m 5
+python cluster_domains.py domains.txt output.txt -f nameServers registrant_organization ip_asn -m 5
 
 # Cluster by registrar and IP details
-python script.py domains.txt output.txt -f registrarName ip_org ip_country
+python cluster_domains.py domains.txt output.txt -f registrarName ip_org ip_country
 """
 import csv
 from collections import defaultdict
